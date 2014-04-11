@@ -1,0 +1,1 @@
+cp /vagrant/provision/init/memcached/files/memcached.conf /etc/memcached.conf

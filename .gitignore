@@ -1,0 +1,6 @@
+*.img
+*.png
+*.db
+*.sass-cache
+.vagrant
+main/
