@@ -2,11 +2,11 @@
 
 import os
 
-directory = "/vagrant/init"
-this_file_name = "boot.py"
+def convert_dos_file_endings_to_unix_in_these_directories(used_directory):
 
-for directory_path, directory_name, file_names in os.walk(directory):
-	for file_name in file_names:
-		if file_name != this_file_name:
-			with open(directory_path + "/" + file_name, "r") as file_content:
-				os.system(file_content.read())
+	os.system("apt-get install dos2unix")
+
+	for directory in used_directory:
+		for directory_path, directory_name, file_names in os.walk(directory):
+			for file_name in file_names:
+				os.system("dos2unix "+ directory_path + "/" + file_name )
