@@ -2,6 +2,9 @@
 
 import os
 
+def main():
+	print "this is the main"
+
 def convert_dos_file_endings_to_unix_in_these_directories(used_directory):
 
 	os.system("apt-get install dos2unix")

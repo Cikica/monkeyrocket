@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_url  = "http://files.vagrantup.com/precise32.box"
   config.vm.hostname = "monkeyrocket"
   config.vm.network :private_network, ip: "192.168.50.4"  
-  config.vm.provision :shell, :path => "init/boot.py"
+  config.vm.provision :shell, :path => "boot.sh"
 
   config.ssh.forward_agent = true
 end
