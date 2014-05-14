@@ -1,2 +1,3 @@
-apt-get --purge nodejs
-apt-get --purge npm
+#!/bin/sh
+apt-get remove nodejs
+apt-get remove npm

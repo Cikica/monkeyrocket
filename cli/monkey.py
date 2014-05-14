@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import json
+import subprocess
 
 class Monkey:
 
@@ -31,6 +32,45 @@ class Monkey:
 		known_packages_file.close()
 		active_packages_file.close()
 		return packages
+
+	def setup_package(self, package):
+		package_path = "/vagrant/bananas/"+ package['name']
+		banana_file = open( package_path +"/banana.json", "r")
+		banana = json.loads(banana_file.read())
+		for path in banana['setup']:
+			subprocess.call([ package_path +"/"+ path ])
+
+		self.add_package_name_to_active_packages(package['name'])
+
+	def purge_package(self, package):
+		package_path = "/vagrant/bananas/"+ package['name']
+		banana_file = open( package_path +"/banana.json", "r")
+		banana = json.loads(banana_file.read())
+		for path in banana['purge']:
+			subprocess.call([ package_path +"/"+ path ])
+		self.remove_package_name_from_active_packages(package['name'])
+
+
+	def get_active_packages(self):
+		file = open("/vagrant/bananas/active_packages.json", "r")
+		active_packages = json.loads(file.read())
+		file.close()
+		return active_packages
+
+	def remove_package_name_from_active_packages(self, package_name):
+		active_packages = self.get_active_packages()
+		file = open("/vagrant/bananas/active_packages.json", "w+")
+		active_packages.pop(active_packages.index(package_name))
+		file.write(json.dumps(active_packages))
+		file.close()
+
+	def add_package_name_to_active_packages(self, package_name):
+		active_packages = self.get_active_packages()
+		file = open("/vagrant/bananas/active_packages.json", "w+")
+		if package_name not in active_packages:
+			active_packages.append(package_name)
+			file.write(json.dumps(active_packages))
+		file.close()
 
 	def parse_the_instructions_and_return_action_definition(self, do):
 
@@ -69,8 +109,36 @@ class Monkey:
 				}
 			}
 
-		if do['setup'] == True and is_package_installed == False and is_known_package == True:
-			print "add package and then set it up"
+		if do['setup'] == True and is_active_package == False and is_package_installed == False and is_known_package == False:
+			print "package is not known"
 
-		if do['setup'] == True and is_package_installed == True:
-			print "setup package"
+		if do['setup'] == True and is_active_package == False and is_package_installed == False and is_known_package == True:
+			print "package is know and can be installed"
+
+		if do['setup'] == True and is_active_package == True:
+			return {
+				"action" : "report",
+				"give"   : "The package "+ do['<package_name>'] +" happens to be already setup."
+			}
+
+		if do['setup'] == True and is_package_installed == True and is_active_package == False:
+			return { 
+				"action" : "setup_package",
+				"give"   : {
+					"name" : do['<package_name>']
+				}
+			}
+
+		if do['purge'] == True and is_active_package == True:
+			return {
+				"action" : "purge_package",
+				"give"   : { 
+					"name" : do['<package_name>']	
+				}
+			}
+
+		if do['purge'] == True and is_active_package == False:
+			return { 
+				"action" : "report",
+				"give"   : "There is no record of this package being active, thus it can not be purged."
+			}
