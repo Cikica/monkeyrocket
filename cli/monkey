@@ -3,7 +3,8 @@
 """Monkey.
 
 Usage:
-  monkey (add|remove|setup|purge) <package_name> [<package_url>]
+  monkey rocket (add|remove) <banana_name> [<banana_url>]
+  monkey banana (add|remove) <banana_name> [<banana_url>]
 """
 from docopt import docopt
 import monkey

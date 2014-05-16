@@ -1,4 +1,4 @@
 {
-	"nodejs" : "some url",
-	"testio1": "some url"
+	"nodejs" : "nodepackageurl",
+	"known1": "some url"
 }

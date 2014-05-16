@@ -1,3 +1,4 @@
+echo "this was the original setup version of monkeyrocket, hooray how we have changed"
 start_time="$(date +%s)"
 apt_package_install_list=()
 module_list=(
