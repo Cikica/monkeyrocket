@@ -3,12 +3,13 @@ import os
 import json
 import subprocess
 import re
-import command_parser
+from command_parser import Monkey_Command_Parser
+from banana_launcher import Monkey_Banana_Launcher
 
 class Monkey:
 
 	def do(self, what):
-		parser = command_parser.Monkey_Command_Parser()
+		parser = Monkey_Command_Parser()
 		self.act_based_on_definition(parser.make(what, self.make_banana_definition(what)))
 
 	def act_based_on_definition(self, definition):
@@ -32,13 +33,15 @@ class Monkey:
 
 	def launch_banana(self, banana):
 
-		package_path = "/vagrant/bananas/"+ banana['name']
-		banana_file = open( package_path +"/banana.json", "r")
-		banana = json.loads(banana_file.read())
-		for path in banana['setup']:
-			subprocess.call([ package_path +"/"+ path ])
+		launcher = Monkey_Banana_Launcher()
+		launcher.make(banana)
+		# package_path = "/vagrant/bananas/"+ banana['name']
+		# banana_file = open( package_path +"/banana.json", "r")
+		# banana = json.loads(banana_file.read())
+		# for path in banana['setup']:
+		# 	subprocess.call([ package_path +"/"+ path ])
 
-		self.add_banana_name_to_active_list_file(banana['name'])
+		# self.add_banana_name_to_active_list_file(banana['name'])
 		
 
 	def deactivate_banana(self, banana):

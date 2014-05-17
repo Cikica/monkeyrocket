@@ -1,4 +1,4 @@
 {
-	"nodejs" : "nodepackageurl",
-	"known1": "some url"
+	"nodejs"  : "nodepackageurl",
+	"laravel" : "some url"
 }

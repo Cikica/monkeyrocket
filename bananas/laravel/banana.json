@@ -1,0 +1,28 @@
+{
+	"setup" : [
+		{	
+			"type"    : "banana",
+			"source"  : "nginx",
+			"tell_it" : {
+				"setup_for" : "php"
+			}
+		},
+		{	
+			"type"   : "banana",
+			"source" : "php",
+			"tell_it" : {
+				"setup_for" : "nginx"
+			}
+		},
+		{	
+			"type"   : "banana",
+			"source" : "composer"
+		}
+	],
+	"purge" : [
+		{
+			"type"   : "shell",
+			"source" : "purge"
+		}
+	]
+}

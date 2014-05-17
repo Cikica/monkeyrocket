@@ -1,0 +1,10 @@
+{	"configuration" : {
+		"setup_for" : ["php", "ruby", "nodejs"]
+	},
+	"setup" : [
+		{
+			"type"   : "shell",
+			"source" : "install"
+		}
+	]
+}

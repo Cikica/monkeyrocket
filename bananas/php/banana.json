@@ -1,0 +1,15 @@
+{
+	"setup" : [
+		{	
+			"type"   : "file",
+			"source" : "install.sh" 
+		},
+		{	
+			"type"   : "banana",
+			"source" : "nginx" 
+		}
+	],
+	"purge" : [
+		"purge.sh"
+	]
+}
