@@ -35,13 +35,6 @@ class Monkey:
 
 		launcher = Monkey_Banana_Launcher()
 		launcher.make(banana)
-		# package_path = "/vagrant/bananas/"+ banana['name']
-		# banana_file = open( package_path +"/banana.json", "r")
-		# banana = json.loads(banana_file.read())
-		# for path in banana['setup']:
-		# 	subprocess.call([ package_path +"/"+ path ])
-
-		# self.add_banana_name_to_active_list_file(banana['name'])
 		
 
 	def deactivate_banana(self, banana):

@@ -1,10 +1,12 @@
-{	"configuration" : {
-		"setup_for" : ["php", "ruby", "nodejs"]
-	},
-	"setup" : [
+{	
+	"configure" : [
 		{
-			"type"   : "shell",
-			"source" : "install"
+			"text" : "Setup nginx for what? (php, nodejs)",
+			"name" : "setup_for"
 		}
-	]
+	],
+	"pass_configuration" : {
+		"to"     : "shell",
+		"source" : "install"
+	}
 }
