@@ -1,4 +1,4 @@
 #!/usr/bin/env python
 
-def make(command):
-	print command
+def make(command, monkey):
+	print "this is help section"

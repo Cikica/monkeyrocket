@@ -1,12 +1,12 @@
 {	
-	"configure" : [
+	"launch" : [
 		{
-			"text" : "Setup nginx for what? (php, nodejs)",
-			"name" : "setup_for"
+			"type"   : "shell",
+			"source" : "install"
+		},
+		{
+			"type"   : "command",
+			"source" : ["help"]
 		}
-	],
-	"pass_configuration" : {
-		"to"     : "shell",
-		"source" : "install"
-	}
+	]
 }

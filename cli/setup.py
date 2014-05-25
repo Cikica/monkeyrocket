@@ -4,7 +4,7 @@ from distutils.core import setup
 
 setup(
 	name='monkey', 
-	version='1.0', 
+	version='0.1',
 	py_modules=[
 		'monkey',
 		'command_parser'
