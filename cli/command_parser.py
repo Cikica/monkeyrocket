@@ -3,7 +3,7 @@
 class Monkey_Command_Parser:
 
 	def make(self, command, banana_information):
-
+		
 		if command['banana']:
 			return self.make_definition_out_of_banana_command(command, banana_information)
 			
@@ -47,6 +47,7 @@ class Monkey_Command_Parser:
 			return definition['rocket']['nothing']
 
 	def resolve_add_command_action(self, command, banana, type):
+
 		if banana['is_active'] and banana['is_installed']:
 			return "nothing"
 
