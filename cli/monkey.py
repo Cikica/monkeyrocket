@@ -19,6 +19,12 @@ class Monkey:
 
 	def read_json_file_parse_it_and_return_its_value(self, file_path):
 		file = open(file_path, "r")
-		value = json.loads(file.read())
+		content = file.read()
 		file.close()
-		return value
+		value = False
+		try:
+			value = json.loads(content)
+		except ValueError:
+			raise NameError("The "+ file_path +"file is not proper json, you probably added a comma where it does not belong, or missed a quote, check it.")
+		else : 
+			return value

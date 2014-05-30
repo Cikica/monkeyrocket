@@ -1,0 +1,12 @@
+{
+	"configuration" : {
+		"port" : {
+			"default" : "6379",
+			"text"    : "Set the prot redis will listen to default ( 6379 )"
+		},
+		"bind" : {
+			"default" : "127.0.0.1",
+			"text"    : "Set the server binding default ( 127.0.0.1 )"
+		}
+	}
+}
