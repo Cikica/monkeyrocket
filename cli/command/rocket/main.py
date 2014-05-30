@@ -30,7 +30,7 @@ def launch(command, monkey):
 def process_banana_instruction(instruction, banana_name, monkey):
 
 	if instruction['type'] == "shell":
-		subprocess.call([ monkey.banana_directory +"/"+ banana_name +"/"+ instruction['source']+".sh"] + [monkey.directory] )
+		subprocess.call([ monkey.banana_directory +"/"+ banana_name +"/"+ instruction['source']+".sh"] + [monkey.directory, monkey.directory +"/banana/"+ banana_name] )
 
 	if instruction['type'] == "command":
 		monkey.run_command(instruction['source'])
