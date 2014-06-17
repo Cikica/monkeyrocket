@@ -3,6 +3,5 @@
 *.db
 *.sass-cache
 *.pyc
-__init__.py
 .vagrant
 main/
