@@ -36,6 +36,7 @@ def make(what):
 			"source" : "install/install",
 			"with"   : [
 				what['configuration']['port'],
+				what['configuration']['bind'],
 				init_file_path,
 				conf_file_path
 			]

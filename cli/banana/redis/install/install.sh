@@ -1,11 +1,5 @@
 #!/bin/sh
 
-echo $1
-echo $2
-echo $3
-echo $4
-echo $5
-
 cd /usr/local/src
 wget http://download.redis.io/releases/redis-2.8.9.tar.gz
 tar xzvf redis-2.8.9.tar.gz
@@ -20,12 +14,12 @@ cp src/redis-cli /usr/local/bin
 
 mkdir /etc/redis
 mkdir /var/redis
-mkdir /var/redis/$3
+mkdir /var/redis/$4
 
-cp $4 /etc/init.d/redis_$3
-cp $5 /etc/redis/$3.conf
-rm $4
+cp $5 /etc/init.d/redis_$3
+cp $6 /etc/redis/$3.conf
 rm $5
+rm $6
 
 update-rc.d redis_$3 defaults
 

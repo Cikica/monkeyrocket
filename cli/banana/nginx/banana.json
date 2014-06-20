@@ -1,0 +1,8 @@
+{
+	"configuration" : {
+		"type" : {
+			"default" : "nothing",
+			"text"    : "What is this nginx installation a server for? ( laravel, wordpress ). Default : ( nothing ), if not set you will have to write your own config file."
+		}
+	}
+}

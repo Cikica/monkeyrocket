@@ -1,0 +1,11 @@
+{
+	"launch" : [
+		{
+			"type"   : "shell",
+			"source" : "install",
+			"with"   : [
+				"stuff"
+			]	
+		}
+	]
+}
