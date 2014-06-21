@@ -2,8 +2,8 @@ does_mysql_exist="$(service mysql status)"
 
 if [[ "mysql: unrecognized service" != "${does_mysql_exist}" ]]; then
 
-	cp /vagrant/provision/init/mysql/files/mysql-config/my.cnf /etc/mysql/my.cnf
-	cp /vagrant/provision/init/mysql/files/mysql-config/root-my.cnf /home/vagrant/.my.cnf
+	cp /vagrant/provision/init/mysql/files/my.cnf /etc/mysql/my.cnf
+	cp /vagrant/provision/init/mysql/files/root-my.cnf /home/vagrant/.my.cnf
 
 	# MySQL gives us an error if we restart a non running service, which
 	# happens after a `vagrant halt`. Check to see if it's running before

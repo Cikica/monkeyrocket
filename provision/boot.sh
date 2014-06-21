@@ -1,4 +1,7 @@
+provision_folder="/vagrant/provision/init"
+
 start_time="$(date +%s)"
+
 apt_package_install_list=()
 module_list=(
 	tools
@@ -11,7 +14,8 @@ module_list=(
 apt_package_check_list=()
 
 for package in "${module_list[@]}"; do
-	source "init/$package/packages.sh"
+	echo " - running $provision_folder/$package/packages.sh"
+	source "$provision_folder/$package/packages.sh"
 	apt_package_check_list=("${apt_package_check_list[@]}" "${packages[@]}" )
 done
 
@@ -30,9 +34,9 @@ for package in "${apt_package_check_list[@]}"; do
 done
 
 for package in "${module_list[@]}"; do 
-	if [[ -a "init/$package/pre.sh" ]]; then
+	if [[ -a "$provision_folder/$package/pre.sh" ]]; then
 		echo " - pre configuration for $package"
-		source "init/$package/pre.sh"
+		source "$provision_folder/$package/pre.sh"
 	fi
 done
 
@@ -43,16 +47,16 @@ apt-get clean
 cp /vagrant/provision/mb-init.conf /etc/init/mb-init.conf
 
 for package in "${module_list[@]}"; do 
-	if [[ -a "init/$package/boot1.sh" ]]; then
+	if [[ -a "$provision_folder/$package/boot1.sh" ]]; then
 		echo " - boot1 configuration for $package"
-		source "init/$package/boot1.sh"
+		source "$provision_folder/$package/boot1.sh"
 	fi
 done
 
 for package in "${module_list[@]}"; do 
-	if [[ -a "init/$package/boot2.sh" ]]; then
+	if [[ -a "$provision_folder/$package/boot2.sh" ]]; then
 		echo " - boot2 configuration for $package"
-		source "init/$package/boot2.sh"
+		source "$provision_folder/$package/boot2.sh"
 	fi
 done
 

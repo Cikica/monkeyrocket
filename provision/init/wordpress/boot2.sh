@@ -1,6 +1,8 @@
 if [[ ! -d /vagrant/main/default ]]; then
 
-	cd /vagrant/main
+	cd /vagrant/
+	mkdir main
+	cd main/
 
 	curl -L https://raw.github.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > wp-cli.phar
 	chmod +x wp-cli.phar
