@@ -5,5 +5,6 @@ python get-pip.py
 rm get-pip.py
 apt-get clean
 pip install docopt
-
 find /vagrant/cli -exec dos2unix '{}' \;
+
+cp -r /vagrant/cli ~/cli

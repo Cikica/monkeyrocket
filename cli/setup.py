@@ -6,8 +6,17 @@ setup(
 	name='monkey', 
 	version='0.1',
 	py_modules=[
-		'monkey',
-		'command_parser'
+		'monkey'
+	],
+	packages=[
+		"library", 
+		"command",
+		"command.rocket",
+		"banana",
+		"banana.redis",
+		"banana.nginx",
+		"banana.php",
+		"banana.laravel"
 	],
 	author='Aleksandar Andjelkovic', 
 	author_email='aleksandar.andjelkovich@gmail.com',
